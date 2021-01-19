@@ -1,0 +1,90 @@
+{% load static%}
+<footer class="footer">
+   
+  <!--Scripts-->
+<script>function resizeContainer() {
+	var navbarHeight = $('#navbar1').height() + 1;
+	$('#container').
+	css('top', navbarHeight + 'px').
+	height($(window).height() - navbarHeight);
+}
+
+function centerModal() {
+	$(this).css('display', 'block');
+	var $dialog = $(this).find(".modal-dialog");
+	var offset = ($(window).height() - $dialog.height()) / 2;
+	$dialog.css("margin-top", offset);
+}
+
+function itemClick(e) {
+	var item = $(e.target);
+	item.css('opacity', '0.35');
+
+	var id = item.attr('id');
+	if (!id) {
+		item = item.parent();
+		id = item.attr('id');
+	}
+
+	var videoHTML = '<img src="http://placehold.it/608x468&text=' + id + '+Selected">';
+
+	$('#modalVideoBody').html(videoHTML);
+
+	$('#modalVideo').on('hidden.bs.modal', function (e) {
+		$('#modalVideoBody').html('');
+	});
+
+	$('#modalVideo').modal('show');
+}
+
+function createThumbnail(id) {
+	var colors = ["8EB5CF", "FFD478", "F89D57", "D9531E"];
+	var bgColor = colors[Math.floor(Math.random() * colors.length)];
+	return "<div id='" + id + "' style='background-image: url(http://beerhold.it/320/240/?x=" + id + ")'><span>" + id + "</span></div>";
+}
+
+function updateContainer(containerItems, prepend) {
+	prepend ? $('#container').prepend(containerItems) : $('#container').append(containerItems);
+	$('#container div').click(function (e) {
+		itemClick(e);
+	});
+
+	$('#container div span').mouseenter(function () {
+		var $this = $(this);
+		if (this.offsetWidth < this.scrollWidth && !$this.attr('title')) {
+			$this.attr('title', $this.text());
+		}
+	});
+}
+
+function getData() {
+	var newGridViewItems = "";
+	for (var i = 1; i < 0; i++) {if (window.CP.shouldStopExecution(0)) break;
+		newGridViewItems += createThumbnail("image_" + i);}window.CP.exitedLoop(0);
+	updateContainer(newGridViewItems, true);
+}
+
+$(function () {
+
+	// Resize the thumbnail container
+	resizeContainer();
+
+	// Center all dialogs on show event
+	$('.modal').on('show.bs.modal', centerModal);
+
+	// Resize the Thumbnail Container and center dialogs on Window resize event
+	$(window).resize(function () {
+		resizeContainer();
+		$('.modal:visible').each(centerModal);
+	});
+
+	// Query the server for new videos and prepend them to the container
+	getData();
+
+});
+ 
+</script>  
+</footer>
+
+  
+

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Listado de anuncios</title>
+  <link rel="icon" type="image/png" href="static/img/favicon_512.png" />
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+<style>
+ 
+  </style>
+</head>
+<body>
+<div id="contenedor">
+  <header>
+        {% include 'cabecera.html' %}
+        <nav>
+        {% include 'menu.html' %}
+  </nav>
+  </header>
+      
+  
+  <div id="content">
+    <h1>LISTA DE ANUNCIOS</h1>
+    {% block content %}
+      <div class="anuncio">
+        {% for anuncio in anuncios %}
+        <div class="individual">
+          <h2>
+            {{ anuncio.titulo }}
+          </h2>
+          <p>
+            <img align="left" src="{{ anuncio.image.url }}" height="100" alt="{{anuncio.titulo}}"> {{ anuncio.texto }}
+          </p>
+        </div>
+      {% endfor %}
+      </div>  
+    {% endblock %}
+  </div>
+    
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

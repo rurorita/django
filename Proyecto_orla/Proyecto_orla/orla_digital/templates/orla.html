@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!--Cabecera-->
+	{%include 'cabecera.html'%}	 	
+</head>
+
+<body>
+	<!--Menu-->
+	{%include 'menu.html'%}	  
+
+	<!-- Ventana Modal Ficha profesor -->
+	<div class="modal" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modalAboutLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Cerrar</span></button>
+			  <h4 class="modal-title" id="myModalLabel">Jesús Sánchez Martínez</h4>
+			</div>
+			<div class="modal-body">
+			<img src="{% static '/images/laser.png' %}" style="float: left;"> 
+			<strong>La Orla Digital</strong> es una aplicación Web en Django realizada como Ejercicio Final del Curso <strong>"Desarrollo Lenguajes Estructurados"</strong>
+			impartido en La Unión en 2020/2021 en las instalaciones de <br><center><img src="{% static 'images/jedi.png' %}" height="60"></center>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	<!-- Categories -->
+	<div class="modal" id="modalCategories" tabindex="-1" role="dialog" aria-labelledby="modalCategoriesLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+		<div class="modal-content">
+		
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Cerrar</span></button>
+			<h4 class="modal-title" id="myModalLabel">Categorias</h4>
+		  </div>
+		  <div class="modal-body">
+          ...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	  </div>
+	</div>
+		
+   <!-- CONTENIDO DE LA ORLA: TITULOS Y PERSONAL-->
+	<div id="container">
+		{% block content %}
+		{% for curso in curso %}
+				
+		<h1 style="">{{ curso.titulo }}</h1>
+		<h2>{{ curso.subtitulo }} </h2>	
+		<h2>{{ curso.Fecha }} </h2>	
+		{% endfor %}
+		  
+		{% for orla in curso %}
+
+		<div id="Image_1">
+			<a href="#" data-toggle="modal" data-target="#modal1">
+			<video width="100%"  autoplay loop>
+			<source src="videos/graduacion01B.mp4" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>{{orla.nombre}} {{orla.apellidos}} -</span>
+			</a>
+		</div>
+		{% endfor %}
+		{% endblock %}
+		<div id="Image_2">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/Secuencia_01.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Salvador Alcaraz - Profesor</span>
+		</div>
+        <div id="Image_3">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/Secuencia_01_2.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Jesús Sánchez - Profesor</span>
+		</div>
+		<div id="Image_3">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion01.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Antonio - Profesor</span>
+		</div>
+        <br>
+        <div id="Image_4">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion02.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Daniel Rodriguez</span>
+		</div>
+        <div id="Image_5">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion03.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Manuel Gomariz</span>
+		</div>
+        <div id="Image_6">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion04.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Joaquín Peña</span>
+		</div>
+        <div id="Image_7">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion05.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Andrea Papa</span>
+		</div>
+        <div id="Image_8">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion06.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Carlos</span>
+		</div>
+        <div id="Image_9">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion07.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Purificación López</span>
+		</div>
+        <div id="Image_10">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion05B.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Jose Luis</span>
+		</div>
+        <div id="Image_11">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion06B.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Darwin</span>
+		</div>
+        <div id="Image_12">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/graduacion07B.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Joaquin</span>
+		</div>
+        <div id="Image_13">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/Secuencia_04B.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Aurora García</span>
+		</div>
+		 <div id="Image_14">
+			<video width="100%"  autoplay loop>
+			<source src="{% static 'videos/babyyoda.mp4'%}" type="video/mp4">
+				Su navegador no soporta video html5
+			</video><span>Baby Yoda</span>
+		</div>
+		
+	
+	<!-- VENTANA MODAL PROFESOR -->
+	<div class="modal" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modalAboutLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Cerrar</span></button>
+			  <h4 class="modal-title" id="myModalLabel">Jesús Sánchez Martínez</h4>
+			</div>
+			<div class="modal-body">
+			<img src="images/image01.png" style="float: left;"> 
+			<strong>La Orla Digital</strong> es una aplicación Web realizada como Ejercicio Final del Curso <strong>"Desarrollo de Aplicaciones con Tecnología Web"</strong>
+			impartido en La Unión de Mayo a Octubre de 2018 en las instalaciones de <br><center><img src="images/logo_ojos.gif" height="60"></center>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+<!--Footer-->
+
+{%include 'footer.html'%}  
+
+ </body>
+</html>

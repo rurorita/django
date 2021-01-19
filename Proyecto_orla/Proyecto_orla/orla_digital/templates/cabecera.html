@@ -1,0 +1,157 @@
+{% load static %}
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Orla interactiva Programación Lenguajes Estructurados">
+	<meta name="author" content="amgg">
+    <meta name="robots" content="index">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static '/images/favicon.ico'%}">	
+	<title>Orla Interactiva</title>
+
+	<!--Bootstrap CSS-->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ 	<!--Bootstrap JS-->
+	<script src="https://code.jquery.com/jquery-1.12.2.min.js" integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk=" crossorigin="anonymous"></script> 
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+/* Margenes y bordes en niveles superiores. Se colocan con margenes y márgenes internos a 0 para evitar desfases:
+ Las cajas en todos los elementos se posicionan a border-box (para que no desborden el 100% nunca*/
+ body, html {
+    overflow: hidden;
+	padding: 0;
+	margin: 0 auto;
+	height: 100%;      
+}
+body {  
+  background-repeat: no-repeat;
+    background: url('{% static "images/clasico-verde.png" %}') no-repeat bottom center fixed;
+    background-size: 98% 96%;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Barra de navegación */
+.navbar-brand,.navbar-nav > li > a {
+	text-shadow:0 1px 0 rgba(255,255,255,.25);
+}
+
+.navbar-inverse {
+	background-image: -webkit-linear-gradient(top,#3c3c3c 0,#222 100%);
+	background-image: -o-linear-gradient(top,#3c3c3c 0,#222 100%);
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#3c3c3c),to(#222));
+	background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	background-repeat:repeat-x;
+}
+
+.navbar-inverse .navbar-brand,.navbar-inverse .navbar-nav > li > a {
+	text-shadow:0 -1px 0 rgba(0,0,0,.25);
+}
+
+.navbar-fixed-top {
+	border-radius:0;
+}
+
+#container {
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  margin: 10% auto 0 auto;
+  padding: 0 6%;  
+  overflow-x: hidden;
+}
+
+#container div {
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: inline-block;
+  padding: 0;
+  margin: 10px 25px;
+  width:  200px;
+  height: 120px;
+  border: 0px solid #999;
+  border-radius: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  opacity: 0.8;
+  
+}
+
+#container div:hover {
+	opacity: 1.0;
+}
+
+#container div span:first-child {	
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+	margin: 0;
+	padding: 3px 12px 3px 6px;
+	background: white;
+	color: white;
+	opacity: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+#container div span:last-child {
+	font-size: 12px;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+	margin: 0;
+	padding: 3px 12px 3px 6px;
+	background: #4d075a;
+	color: white;
+	opacity: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+}
+
+.modal-backdrop.in {
+	filter: alpha(opacity=90);
+	opacity: .9;
+}
+
+.bs-glyphicons{margin:0;overflow:hidden}
+.bs-glyphicons-list{padding-left:0;list-style:none}
+.bs-glyphicons li{float:left;width:25%;height:115px;padding:10px;font-size:10px;line-height:1.4;text-align:center;background-color:#f9f9f9;border:1px solid #fff}
+.bs-glyphicons .glyphicon{margin-top:5px;margin-bottom:10px;font-size:24px}
+.bs-glyphicons .glyphicon-class{display:block;text-align:center;word-wrap:break-word}
+.bs-glyphicons li:hover{color:#fff;background-color:#563d7c}
+
+@media (min-width:768px){
+	.bs-glyphicons{margin-right:0;margin-left:0}
+	.bs-glyphicons li{width:12.5%;font-size:12px}
+	 
+}
+
+.input-group[class*="col-"] {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#modalVideoBody {
+  padding: 0px;
+  width: 608px;
+  height: 468px;
+}
+</style>
